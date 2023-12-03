@@ -1,5 +1,6 @@
 package com.tareas.gestor.model;
 
+import com.tareas.gestor.enums.ProcesoEstado;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,9 +19,10 @@ public class Tarea {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
-    private int idUsuario;
     private String titulo;
     private String descripcion;
     private Date fechaCreacion;
-    private String estado;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "estado")
+    private ProcesoEstado estado;
 }
